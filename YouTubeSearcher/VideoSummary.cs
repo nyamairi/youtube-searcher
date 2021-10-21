@@ -2,14 +2,21 @@
 
 namespace YouTubeSearcher
 {
-    internal record VideoSummary(string Id, string Title, DateTime? PublishedAt, VideoViewCount ViewCount,
-        VideoLikeCount LikeCount)
+    internal record VideoSummary(
+        string Id,
+        string Title,
+        string ChannelTitle,
+        DateTime? PublishedAt,
+        VideoViewCount ViewCount,
+        VideoLikeCount LikeCount
+    )
     {
         public Uri Url => new($"https://youtube.com/watch?v={Id}");
 
         public void Deconstruct(
             out string id,
             out string title,
+            out string channelTitle,
             out DateTime? publishedAt,
             out VideoViewCount viewCount,
             out VideoLikeCount likeCount,
@@ -18,6 +25,7 @@ namespace YouTubeSearcher
         {
             id = Id;
             title = Title;
+            channelTitle = ChannelTitle;
             publishedAt = PublishedAt;
             viewCount = ViewCount;
             likeCount = LikeCount;

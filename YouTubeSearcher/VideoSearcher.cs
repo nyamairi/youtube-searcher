@@ -45,6 +45,7 @@ namespace YouTubeSearcher
             return new VideoSummary(
                 video.Id,
                 snippet.Title,
+                snippet.ChannelTitle,
                 snippet.PublishedAt,
                 new VideoViewCount(videoStatistics.ViewCount),
                 new VideoLikeCount(videoStatistics.LikeCount)
