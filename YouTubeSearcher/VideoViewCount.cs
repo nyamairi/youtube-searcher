@@ -11,7 +11,7 @@
 
         public override string ToString()
         {
-            return _value?.ToString("N0") ?? "?";
+            return _value.HasValue ? NumberFormatter.ToSummarizedString(_value.Value) : "?";
         }
     }
 }

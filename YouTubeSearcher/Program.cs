@@ -29,7 +29,7 @@ namespace YouTubeSearcher
         private static string ToString(VideoSummary summary)
         {
             var (_, title, channelTitle, publishedAt, viewCount, likeCount, url) = summary;
-            return $"{url} [{channelTitle}] {title}{publishedAt?.ToString(" (yyyy/MM/dd)")} 視聴数({viewCount}) +{likeCount}";
+            return $"[{channelTitle}] {title}{publishedAt?.ToString(" (yyyy/MM/dd)")} {viewCount} views {likeCount} likes {url}";
         }
     }
 }
