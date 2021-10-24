@@ -20,10 +20,9 @@ namespace YouTubeSearcher
 
             var keyword = args.First();
 
-            var summaries = await VideoSearcher.SearchSummaries(ApiKey, keyword);
-            foreach (var s in summaries.Select(ToString))
+            await foreach (var summary in VideoSearcher.SearchSummaries(ApiKey, keyword, VideoSearcher.MaxResults.Max))
             {
-                await Console.Out.WriteLineAsync(s);
+                await Console.Out.WriteLineAsync(ToString(summary));
             }
         }
 
